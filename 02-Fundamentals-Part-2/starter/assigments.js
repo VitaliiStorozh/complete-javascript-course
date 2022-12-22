@@ -50,3 +50,10 @@ function percentageOfWorld1(population) {
 // console.log(describePopulation('China', 2000));
 // console.log(describePopulation('India', 1870));
 // console.log(describePopulation('Ukraine', 48));
+
+// // Introduction to Arrays
+// const populations = [2000, 1870, 48, 300];
+// console.log(populations.length === 4);
+
+// const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[populations.length - 1])];
+// console.log(percentages);
