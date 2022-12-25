@@ -57,3 +57,19 @@ function percentageOfWorld1(population) {
 
 // const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[populations.length - 1])];
 // console.log(percentages);
+
+// // Basic Array Operations (Methods)
+
+// const neighbours = ['pidarusia', 'biladorusia', 'Poland', 'hungary', 'Slovakia', 'Romania'];
+// console.log(neighbours);
+// neighbours.push('Utopia');
+// console.log(neighbours);
+// neighbours.pop();
+// console.log(neighbours);
+
+// if (neighbours.includes('Germany') === false){
+//     console.log(`Probably not a central European country :D`);
+// }
+// const indexPoland = neighbours.indexOf('Poland');
+// neighbours[indexPoland] = 'Respublic of Poland'
+// console.log(neighbours);
