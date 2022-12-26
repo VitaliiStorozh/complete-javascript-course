@@ -185,4 +185,94 @@ if (friends.includes('Michael')) {
 } else {
     console.log(`Entrance forbiden!`);
 }
+
+
+// Introduction to Objects
+
+const vitaliiArray = [
+    'Vitalii',
+    'Storozh',
+    2022 - 1985,
+    'engineer',
+    ['Michael', 'Oleksandr', 'Evgeniy']
+];
+
+const vitalii = {
+    firstName: 'Vitalii',
+    lastName: 'Storozh',
+    age: 2022 - 1985,
+    job: 'engineer',
+    friends: ['Michael', 'Oleksandr', 'Evgeniy']
+};
+
+
+// Dot vs. Bracket Notation
+const vitalii = {
+    firstName: 'Vitalii',
+    lastName: 'Storozh',
+    age: 2022 - 1985,
+    job: 'engineer',
+    friends: ['Michael', 'Oleksandr', 'Evgeniy']
+};
+console.log(vitalii);
+
+// Dot Notation
+console.log(vitalii.lastName);
+// Bracket Notation
+console.log(vitalii['lastName']);
+
+const keyName = 'Name';
+console.log(vitalii['first' + keyName]);
+console.log(vitalii['last' + keyName]);
+
+const interestedIn = prompt('What do you want to know about Vitalii? Choose between firstName, lastName, age, job and friends');
+
+if (vitalii[interestedIn]) {
+    console.log(vitalii[interestedIn]);
+} else {
+    console.log('Wrong request! Choose between firstName, lastName, age, job and friends');
+}
+
+vitalii.location = 'Ukraine';
+vitalii['twitter'] = '@vitaliistorozh';
+console.log(vitalii);
+
+//Challenge
+console.log(`${vitalii.firstName} has ${vitalii.friends.length} friends and his best friend is called ${vitalii.friends[vitalii.friends.length - 1]}`);
+
+
+// Object Methods
+const vitalii = {
+    firstName: 'Vitalii',
+    lastName: 'Storozh',
+    birthYear: 1985,
+    job: 'engineer',
+    friends: ['Michael', 'Oleksandr', 'Evgeniy'],
+    hasDriverLicense: true,
+
+    // calcAge: birthYear => 2022 - birthYear
+
+    // calcAge: function (birthYear) {
+    //     return 2022 - birthYear;
+    // }
+
+    // calcAge: function () {
+    //     return 2022 - this.birthYear;
+    // }
+
+    calcAge: function () {
+        this.age = 2022 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function () {
+        this.vitaliiSummary = `${this.firstName} ${this.lastName} is ${this.calcAge()}-years old ${this.job}. He ${this.hasDriverLicense ? 'has': "hasn't"} driver's License. His best friend is ${ this.friends[this.friends.length - 1] }.`;
+        return this.vitaliiSummary;
+    }
+};
+
+console.log(vitalii.calcAge());
+// console.log(vitalii['calcAge'](1985));
+console.log(vitalii.age);
+console.log(vitalii.getSummary());
 */

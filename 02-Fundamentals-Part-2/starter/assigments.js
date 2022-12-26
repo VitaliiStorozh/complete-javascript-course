@@ -73,3 +73,41 @@ function percentageOfWorld1(population) {
 // const indexPoland = neighbours.indexOf('Poland');
 // neighbours[indexPoland] = 'Respublic of Poland'
 // console.log(neighbours);
+
+// // Introduction to Objects
+// const myCountry = {
+//     country: 'Ukraine',
+//     capital: 'Kyiv',
+//     language: 'ukrainian',
+//     population: 48,
+//     neighbours: ['pidarusia', 'biladorusia', 'Poland', 'hungary', 'Slovakia', 'Romania']
+// };
+
+// // Dot vs. Bracket Notation
+// console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`)
+
+// console.log(myCountry.population);
+// console.log(myCountry.population += 2);
+// console.log(myCountry['population'] -= 2);
+
+// // Object Methods
+// const myCountry = {
+//     country: 'Ukraine',
+//     capital: 'Kyiv',
+//     language: 'ukrainian',
+//     population: 48,
+//     neighbours: ['pidarusia', 'biladorusia', 'Poland', 'hungary', 'Slovakia', 'Romania'],
+
+//     describe: function () {
+//         this.describeCountry = `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`
+//         console.log(this.describeCountry);
+//         return this.describeCountry;
+//     },
+
+//     checkIsland: function () {
+//         this.isIsland = this.neighbours <= 0 ? true : false;
+//         return this.isIsland;
+//     }
+// };
+// myCountry.describe();
+// console.log(myCountry.checkIsland());
