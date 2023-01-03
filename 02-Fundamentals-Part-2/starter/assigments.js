@@ -52,10 +52,10 @@ function percentageOfWorld1(population) {
 // console.log(describePopulation('Ukraine', 48));
 
 // // Introduction to Arrays
-// const populations = [2000, 1870, 48, 300];
+const populations = [2000, 1870, 48, 300];
 // console.log(populations.length === 4);
 
-// const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[populations.length - 1])];
+const percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[populations.length - 1])];
 // console.log(percentages);
 
 // // Basic Array Operations (Methods)
@@ -111,3 +111,44 @@ function percentageOfWorld1(population) {
 // };
 // myCountry.describe();
 // console.log(myCountry.checkIsland());
+
+// // Iteration: The for Loop
+// for (let vote = 1; vote <= 50; vote++){
+//     console.log(`Voter number ${vote} is currently voting`);
+// }
+
+// // Looping Arrays, Breaking and Continuing
+// const percentages2 = [];
+// for (let i = 0; i < populations.length; i++){
+//     percentages2.push(percentageOfWorld1(populations[i]));
+// }
+// for (let i = 0; i < percentages.length; i++){
+//     if (percentages[i] !== percentages2[i]) break;
+//     console.log(true);
+// }
+
+// // // Looping Backwards and Loops in Loops
+// const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'russia']];
+
+// for (let countries = 0; countries < listOfNeighbours.length; countries++){
+//     if (listOfNeighbours[countries].length > 1) {
+//         for (let country = 0; country < listOfNeighbours[countries].length; country++){
+//             console.log(`Neighbour: ${listOfNeighbours[countries][country]}`);
+//         }
+//     }
+// }
+
+// // The while Loop
+// console.log('---------While Loop---------')
+
+// let countries = 0;
+// while (countries < listOfNeighbours.length) {
+//     if (listOfNeighbours[countries].length > 1) {
+//         let country = 0;
+//         while (country < listOfNeighbours[countries].length) {
+//             console.log(`Neighbour: ${listOfNeighbours[countries][country]}`);
+//             country++;
+//         }
+//     }
+//     countries++
+// }

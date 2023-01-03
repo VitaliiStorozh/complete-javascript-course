@@ -275,4 +275,97 @@ console.log(vitalii.calcAge());
 // console.log(vitalii['calcAge'](1985));
 console.log(vitalii.age);
 console.log(vitalii.getSummary());
+
+
+// Iteration: The for Loop
+for (let rep = 1; rep <= 10; rep++){
+    console.log(`Lifting weights repetition ${rep} 🏋🏿`);
+}
+
+
+// Looping Arrays, Breaking and Continuing
+const vitalii = [
+    'Vitalii',
+    'Storozh',
+    2022 - 1985,
+    'engineer',
+    ['Michael', 'Oleksandr', 'Evgeniy'],
+    true
+];
+
+const types = [];
+
+for (let i = 0; i < vitalii.length; i++){
+    // Reading from vitalii array
+    console.log(vitalii[i], typeof (vitalii[i]));
+    
+    // Filling types array
+    // types[i] = typeof (vitalii[i]);
+    types.push(typeof (vitalii[i]));
+}
+
+console.log(types);
+
+const years = [1996, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++){
+    ages.push(2022 - years[i]);
+}
+console.log(ages);
+
+// continue and break
+console.log('---ONLY STRINGS---');
+for (let i = 0; i < vitalii.length; i++){
+    if (typeof (vitalii[i]) !== 'string') continue;
+    console.log(vitalii[i], typeof (vitalii[i]));
+}
+
+console.log('---BREAK WITH NUMBER---');
+for (let i = 0; i < vitalii.length; i++){
+    if (typeof (vitalii[i]) === 'number') break;
+    console.log(vitalii[i], typeof (vitalii[i]));
+}
+
+
+// Looping Backwards and Loops in Loops
+const vitalii = [
+    'Vitalii',
+    'Storozh',
+    2022 - 1985,
+    'engineer',
+    ['Michael', 'Oleksandr', 'Evgeniy']
+];
+
+for (let i = vitalii.length - 1; i >= 0; i--){
+    console.log(i, vitalii[i]);
+}
+
+for (let exercise = 1; exercise <= 3; exercise++){
+    console.log(`---Start Exercise ${exercise}`);
+
+    for (let rep = 1; rep <= 5; rep++){
+        console.log(`Lifting weight repetition ${rep}`);
+    }
+}
+
+
+// The while Loop
+// for (let rep = 1; rep <= 10; rep++){
+//     console.log(`Lifting weights repetition ${rep} 🏋🏿`);
+// }
+
+let rep = 1;
+while (rep <= 10) {
+    // console.log(`Lifting weights repetition ${rep} 🏋🏿`);
+    rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+    console.log(`You are rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log('Loop is about to end...');
+}
 */
