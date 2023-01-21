@@ -53,8 +53,24 @@ const restaurant = {
     console.log(...otherIngridients);
   },
 };
+
 //////////////////////////////////////
-// Short circuiting
+// Logical Assingnment Operators
+/*
+//////////////////////////////////////
+// The Nullish Coalescing Operator (??)
+
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null or undefined (NOT 0 or "")
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect);
+
+
+//////////////////////////////////////
+// Short circuiting (|| and &&)
 
 // Use ANY data type, return ANY data type, short-circuting
 console.log('--- OR ---');
@@ -84,7 +100,7 @@ if (restaurant.orderPizza) {
   restaurant.orderPizza('meat', 'blue cheese', 'tomato');
 }
 restaurant.orderPizza && restaurant.orderPizza('meat', 'blue cheese', 'tomato');
-/*
+
 //////////////////////////////////////
 // REST pattern and parameters
 
