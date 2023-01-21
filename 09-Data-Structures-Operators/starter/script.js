@@ -47,9 +47,86 @@ const restaurant = {
       `You ordered delicious Pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngridient, ...otherIngridients) {
+    console.log(mainIngridient);
+    console.log(...otherIngridients);
+  },
+};
+//////////////////////////////////////
+// Short circuiting
+
+// Use ANY data type, return ANY data type, short-circuting
+console.log('--- OR ---');
+
+console.log(3 || 'Vitalii');
+console.log('' || 'Vitalii');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+// restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log('--- AND ---');
+console.log(3 && 'Vitalii');
+console.log(0 && 'Vitalii');
+
+console.log('Hello' && 23 && null && 'Vitalii');
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('meat', 'blue cheese', 'tomato');
+}
+restaurant.orderPizza && restaurant.orderPizza('meat', 'blue cheese', 'tomato');
+/*
+//////////////////////////////////////
+// REST pattern and parameters
+
+// 1) Destructuring
+
+// SPRED, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+// REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6, 7];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+  return sum;
 };
 
-/*
+add(2, 4);
+add(3, 4, 5, 6, 7, 8, 9);
+add(8, 9, 5, 4, 3, 2, 5, 6, 7, 8);
+
+const x = [23, 4, 7];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'avokado', 'cheese', 'becon');
+
+restaurant.orderPizza('mushrooms');
+
+
 //////////////////////////////////////
 // The spred operator (...)
 const arr = [7, 8, 9];
