@@ -54,6 +54,7 @@ const restaurant = {
   },
 };
 
+/*
 //////////////////////////////////////
 // Logical Assignment Operators
 const rest1 = {
@@ -67,7 +68,6 @@ const rest2 = {
   owner: 'Giorgio Lambruko',
 };
 
-/*
 // OR assignment operator
 // rest1.numGuests = rest1.numGuests || 10;
 // rest2.numGuests = rest2.numGuests || 10;
@@ -161,7 +161,6 @@ const add = function (...numbers) {
   console.log(sum);
   return sum;
 };
-
 
 add(2, 4);
 add(3, 4, 5, 6, 7, 8, 9);
