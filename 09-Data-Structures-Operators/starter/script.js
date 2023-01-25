@@ -51,10 +51,64 @@ const restaurant = {
     console.log(...otherIngridients);
   },
 };
+/*
+//////////////////////////////////////
+// Looping objects
+
+// Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are opened ${properties.length} days in week: `;
+
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+// [key, value]
+for (const [day, { open, close }] of entries) {
+  console.log(`On ${day} we are open from ${open} to ${close}`);
+}
 
 //////////////////////////////////////
+// Optional chaining (?.)
 
-/*
+if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// WITH optional chaining
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} we are opening at ${open}`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 2) ?? "The method doesn't exist");
+console.log(restaurant.orderSushi?.(0, 2) ?? "The method doesn't exist");
+
+// Arrays
+// const user = [
+//   {
+//     name: 'Vitalii',
+//     age: 30,
+//     job: 'engeenir',
+//   },
+// ];
+const user = [];
+console.log(user[0]?.name ?? 'Array is empty');
+
 //////////////////////////////////////
 // Looping array: The for-of loop
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
