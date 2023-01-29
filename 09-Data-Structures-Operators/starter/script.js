@@ -54,6 +54,46 @@ const restaurant = {
 
 /*
 //////////////////////////////////////
+// Strings - Part 1
+const airlines = 'TAP Air Portugal';
+const plane = 'A320';
+const random = [2, 3, 5, 32, 1, 56, 43];
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737');
+
+console.log(airlines.length);
+console.log('B737 '.length);
+
+console.log(airlines.indexOf('r'));
+console.log(airlines.lastIndexOf('r'));
+console.log(airlines.indexOf('Portugal'));
+
+console.log(airlines.slice(4));
+console.log(airlines.slice(4, 7));
+
+console.log(airlines.slice(0, airlines.indexOf(' ')));
+console.log(airlines.slice(airlines.lastIndexOf(' ') + 1));
+
+console.log(airlines.slice(0, airlines.indexOf(' ')));
+console.log(airlines.slice(1, -1));
+
+const checkMidleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  return s === 'B' || s === 'E'
+    ? 'you got the middle seat'
+    : "you didn't got the middle seat";
+};
+
+console.log(checkMidleSeat('23B'));
+console.log(checkMidleSeat('2C'));
+console.log(checkMidleSeat('44E'));
+
+
+//////////////////////////////////////
 // Maps: Iterations
 const question = new Map([
   ['question', 'What is the best programming language?'],
