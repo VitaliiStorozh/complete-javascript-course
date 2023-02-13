@@ -169,4 +169,45 @@ book.apply(swiss, flightData); // Do not used in modern JS
 
 book.call(swiss, ...flightData);
 console.log(swiss.bookings);
+
+// The bind Method
+// book.call(eurowings, 23, 'Sarah Wiliams');
+
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steve Lee');
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Natan Grushka');
+bookEW23('Maria Terezia');
+
+// With Event Listeners
+lufthansa.plane = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.plane++;
+  console.log(this.plane);
+};
+
+// lufthansa.buyPlane();
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = value => value + value * 0.23;
+console.log(addVAT(400));
+
+const adddTax = rate => value => value + value * rate;
+const addVAT2 = adddTax(0.15);
+console.log(adddTax(0.12)(100));
+console.log(addVAT2(100));
 */
