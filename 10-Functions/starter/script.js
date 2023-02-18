@@ -210,4 +210,32 @@ const adddTax = rate => value => value + value * rate;
 const addVAT2 = adddTax(0.15);
 console.log(adddTax(0.12)(100));
 console.log(addVAT2(100));
+
+
+////////////////////////////////////////
+// Immediately Invoked Function Expressions (IIFE)
+
+const runOnce = function () {
+  console.log('This will never run again!');
+};
+
+runOnce();
+
+// IIFE
+(function () {
+  console.log('This will never run again!');
+  const isPrivate = 23;
+})();
+
+// console.log(isPrivate);
+
+(() => console.log('This will ALSO never run again!'))();
+
+{
+  var isNotPrivate = 34;
+  const isPrivate = 46;
+}
+
+console.log(isNotPrivate);
+// console.log(isPrivate);
 */
