@@ -235,7 +235,7 @@ const checkDogs = function (dogsJulia, dogsKate) {
 };
 
 checkDogs(dogsJulia, dogsKate);
-*/
+
 
 ///////////////////////////////////////
 // Data Transformations: map, filter, redu  ce
@@ -266,3 +266,4 @@ const movementDescriptions = movements.map(
     )}`
 );
 console.log(movementDescriptions);
+*/
