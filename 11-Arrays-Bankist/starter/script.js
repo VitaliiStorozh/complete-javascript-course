@@ -81,7 +81,7 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
-
+/*
 // Computing Usernames
 
 const createUserNames = function (accs) {
@@ -93,9 +93,9 @@ const createUserNames = function (accs) {
       .join('');
   });
 };
-
 createUserNames(accounts);
 console.log(accounts);
+*/
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
