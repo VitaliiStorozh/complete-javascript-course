@@ -82,6 +82,12 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
+
 // Computing Usernames
 
 const createUserNames = function (accs) {
@@ -94,7 +100,6 @@ const createUserNames = function (accs) {
   });
 };
 createUserNames(accounts);
-console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -295,4 +300,30 @@ console.log(depositFor);
 
 const withdrawal = movements.filter(mov => mov < 0);
 console.log(withdrawal);
+
+
+///////////////////////////////////////
+// The reduce Method
+
+console.log(movements);
+
+// accumulator -> SNOWBALL
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Iteration # ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0);
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balance);
+
+let balanceFor = 0;
+for (const cur of movements) balanceFor += cur;
+console.log(balanceFor);
+
+// Maximu value
+
+const max = movements.reduce(
+  (max, cur) => (cur > max ? cur : max),
+  movements[0]
+);
+console.log(max);
 */
