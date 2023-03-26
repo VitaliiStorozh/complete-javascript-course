@@ -125,7 +125,7 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
-// Event hendler
+// Event hendlers
 let currentAccount;
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -175,6 +175,23 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (
+    currentAccount.username === inputCloseUsername.value &&
+    currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    // .indexOf(23)
+
+    // Delete account
+    accounts.splice(index, 1);
+    // Hide UI
+    containerApp.style.opacity = 0;
+  }
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
