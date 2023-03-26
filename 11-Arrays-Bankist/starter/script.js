@@ -175,6 +175,27 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amoutn = Number(inputLoanAmount.value);
+
+  if (
+    amoutn > 0 &&
+    amoutn > currentAccount.movements.some(mov => mov > amoutn / 10)
+  ) {
+    // console.log('approved');
+    currentAccount.movements.push(amoutn);
+
+    // Clear transfer field
+    inputLoanAmount.value = '';
+    inputLoanAmount.blur();
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+});
+
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
   if (
@@ -504,4 +525,29 @@ console.log(accounts);
 
 const account = accounts.find(acc => acc.owner === 'Sarah Smith');
 console.log(account);
+*/
+
+/*
+///////////////////////////////////////////
+// The some and every methods
+
+console.log(movements);
+
+// EQUALITY
+console.log(movements.includes(-130));
+
+// SOME: CONDITION
+const anyDeposits = movements.some(mov => mov > 0);
+console.log(anyDeposits);
+
+// EVERY
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+
+// Separate callback
+
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
 */
