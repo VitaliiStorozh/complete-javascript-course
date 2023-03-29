@@ -661,3 +661,65 @@ labelBalance.addEventListener('click', function () {
   const movementsUI2 = [...document.querySelectorAll('.movements__value')];
 });
 */
+
+/*
+///////////////////////////////////////////////////
+// Array Methods Practice
+
+// 1.
+const bankDepositSum = accounts
+  .flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+
+console.log(bankDepositSum);
+
+// 2.
+// const numDeposits1000 = accounts
+//   .flatMap(acc => acc.movements)
+//   .filter(mov => mov >= 1000).length;
+
+const numDeposits1000 = accounts
+  .flatMap(acc => acc.movements)
+  // .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+
+console.log(numDeposits1000);
+
+// 3.
+
+const { deposits, withdrawal } = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawal += cur);
+      sums[cur > 0 ? 'deposits' : 'withdrawal'] += cur;
+      return sums;
+    },
+    {
+      deposits: 0,
+      withdrawal: 0,
+    }
+  );
+
+console.log(deposits, withdrawal);
+
+// 4.
+
+const converTitleCase = function (title) {
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+
+  const exceptions = ['a', 'an', 'but', 'the', 'or', 'on', 'in', 'with', 'and'];
+
+  const totalCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+    .join(' ');
+
+  return capitalize(totalCase);
+};
+console.log(converTitleCase('this is a nice title'));
+console.log(converTitleCase('this is a LONG title but not to long'));
+console.log(converTitleCase('and here is another title with an EXAMPLE'));
+*/
