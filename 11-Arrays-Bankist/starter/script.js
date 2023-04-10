@@ -386,7 +386,7 @@ checkDogs(dogsJulia, dogsKate);
 */
 /*
 ///////////////////////////////////////
-// Data Transformations: map, filter, redu  ce
+// Data Transformations: map, filter, reduce
 
 // The map Method
 

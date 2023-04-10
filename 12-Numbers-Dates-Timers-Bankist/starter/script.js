@@ -121,15 +121,13 @@ const calcDisplaySummary = function (acc) {
   const interest = acc.movements
     .filter(mov => mov > 0)
     .map(deposit => (deposit * acc.interestRate) / 100)
-    .filter((int, i, arr) => {
-      // console.log(arr);
-      return int >= 1;
-    })
+    .filter(int => int >= 1)
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
 
-const createUsernames = function (accs) {
+// Computing Usernames
+const createUserNames = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
       .toLowerCase()
@@ -138,7 +136,7 @@ const createUsernames = function (accs) {
       .join('');
   });
 };
-createUsernames(accounts);
+createUserNames(accounts);
 
 const updateUI = function (acc) {
   // Display movements
@@ -186,6 +184,7 @@ btnTransfer.addEventListener('click', function (e) {
   const receiverAcc = accounts.find(
     acc => acc.username === inputTransferTo.value
   );
+  // Clear transfer field
   inputTransferAmount.value = inputTransferTo.value = '';
 
   if (
