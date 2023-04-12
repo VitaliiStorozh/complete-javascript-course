@@ -362,3 +362,18 @@ labelBalance.addEventListener('click', function () {
   });
 });
 */
+
+/*
+/////////////////////////////////////////////////
+// Numeric Separators
+
+const diameter = 287_467_000_000;
+console.log(diameter);
+
+const priceCents = 347_99;
+console.log(priceCents);
+
+// Not work
+console.log(Number('230_000'));
+console.log(parseInt('230_000'));
+*/
