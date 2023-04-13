@@ -377,3 +377,37 @@ console.log(priceCents);
 console.log(Number('230_000'));
 console.log(parseInt('230_000'));
 */
+
+/*
+/////////////////////////////////////////////////
+// Working with BigInt
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+console.log(1289326423764928364928364918249826432983);
+console.log(1289326423764928364928364918249826432983n);
+console.log(BigInt(1289326423764));
+
+// Operations
+console.log(1000n + 1000n);
+console.log(2345493882737n * 1000n);
+// console.log(2345493882737n * 1000); // can't be mixed
+// console.log(Math.sqrt(16n));
+
+const huge = 2438926428384792n;
+const num = 1000;
+console.log(huge * BigInt(num));
+
+// Exceptions
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == 20);
+
+console.log(huge + ' is realy big!');
+
+// Divisions
+console.log(10n / 3n);
+console.log(10 / 3);
+*/
