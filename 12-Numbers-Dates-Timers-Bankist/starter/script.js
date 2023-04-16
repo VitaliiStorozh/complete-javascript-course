@@ -576,8 +576,14 @@ console.log('Waiting...');
 if (ingridients.includes('olives')) clearTimeout(pizzaTimer);
 
 // Set intervals
+const options = {
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+};
+
 setInterval(function () {
   const now = new Date();
-  console.log(now);
+  console.log(new Intl.DateTimeFormat(navigator.language, options).format(now));
 }, 1000);
 */
