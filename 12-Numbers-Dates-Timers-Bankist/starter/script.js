@@ -181,14 +181,43 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+const startLogOutTimer = function () {
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    // In each call, print the remaining time to UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // When 0 seconds, stop timer and log out user
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = 'Log in to get started';
+      containerApp.style.opacity = 0;
+    }
+
+    // Decrease 1s
+    time--;
+  };
+
+  // Set time to 5 minutes
+  let time = 120;
+
+  // Call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+
+  return timer;
+};
+
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
+let currentAccount, timer;
 
-// FAKE ALWAYS LOGGED IN
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
+// // FAKE ALWAYS LOGGED IN
+// currentAccount = account1;
+// updateUI(currentAccount);
+// containerApp.style.opacity = 100;
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -207,7 +236,6 @@ btnLogin.addEventListener('click', function (e) {
     containerApp.style.opacity = 100;
 
     // Create current date and time
-
     const now = new Date();
     const options = {
       hour: 'numeric',
@@ -229,12 +257,16 @@ btnLogin.addEventListener('click', function (e) {
     // const month = `${now.getMonth() + 1}`.padStart(2, 0);
     // const year = now.getFullYear();
     // const hour = `${now.getHours()}`.padStart(2, 0);
-    // const minute = `${now.getMinutes()}`.padStart(2, 0);
-    // labelDate.textContent = `${day}/${month}/${year} ${hour}:${minute}`;
+    // const min = `${now.getMinutes()}`.padStart(2, 0);
+    // labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
 
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
+
+    // Timer
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
 
     // Update UI
     updateUI(currentAccount);
@@ -266,6 +298,10 @@ btnTransfer.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    // Reset timer
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
 });
 
@@ -284,7 +320,11 @@ btnLoan.addEventListener('click', function (e) {
 
       // Update UI
       updateUI(currentAccount);
-    }, 5000);
+
+      // Reset timer
+      clearInterval(timer);
+      timer = startLogOutTimer();
+    }, 2500);
   }
   inputLoanAmount.value = '';
 });
@@ -324,12 +364,12 @@ btnSort.addEventListener('click', function (e) {
 // LECTURES
 
 /*
-/////////////////////////////////////////////////
+///////////////////////////////////////
 // Converting and Checking Numbers
 
 console.log(23 === 23.0);
 
-// Base 10 - 0 to 9. 1/10 = 0.1; 3/10 = 3.333333
+// Base 10 - 0 to 9. 1/10 = 0.1. 3/10 = 3.3333333
 // Binary base 2 - 0 1
 console.log(0.1 + 0.2);
 console.log(0.1 + 0.2 === 0.3);
@@ -340,17 +380,20 @@ console.log(+'23');
 
 // Parsing
 console.log(Number.parseInt('30px', 10));
+console.log(Number.parseInt('e23', 10));
 
-console.log(Number.parseInt('2.5rem'));
-console.log(Number.parseFloat('2.5rem'));
+console.log(Number.parseInt('  2.5rem  '));
+console.log(Number.parseFloat('  2.5rem  '));
 
-// Checking if value is NaN
+// console.log(parseFloat('  2.5rem  '));
+
+// Check if value is NaN
 console.log(Number.isNaN(20));
 console.log(Number.isNaN('20'));
 console.log(Number.isNaN(+'20X'));
 console.log(Number.isNaN(23 / 0));
 
-// Checking if value is a number
+// Checking if value is number
 console.log(Number.isFinite(20));
 console.log(Number.isFinite('20'));
 console.log(Number.isFinite(+'20X'));
@@ -383,8 +426,8 @@ console.log(Math.trunc(Math.random() * 6) + 1);
 
 const randomInt = (min, max) =>
   Math.floor(Math.random() * (max - min) + 1) + min;
-
-console.log(randomInt(10, 20));
+// 0...1 -> 0...(max - min) -> min...max
+// console.log(randomInt(10, 20));
 
 // Rounding integers
 
@@ -395,7 +438,7 @@ console.log(Math.ceil(23.3));
 console.log(Math.ceil(23.9));
 
 console.log(Math.floor(23.3));
-console.log(Math.floor(23.9));
+console.log(Math.floor('23.9'));
 
 console.log(Math.trunc(23.3));
 
@@ -403,8 +446,9 @@ console.log(Math.trunc(-23.3));
 console.log(Math.floor(-23.3));
 
 // Rounding decimals
-console.log((2.7).toFixed());
+console.log((2.7).toFixed(0));
 console.log((2.7).toFixed(3));
+console.log((2.345).toFixed(2));
 console.log(+(2.345).toFixed(2));
 */
 
@@ -421,6 +465,9 @@ console.log(8 / 3); // 8 = 2 * 3 + 2
 console.log(6 % 2);
 console.log(6 / 2);
 
+console.log(7 % 2);
+console.log(7 / 2);
+
 const isEven = n => n % 2 === 0;
 console.log(isEven(3));
 console.log(isEven(22));
@@ -429,7 +476,9 @@ console.log(isEven(64));
 
 labelBalance.addEventListener('click', function () {
   [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+    // 0, 2, 4, 6
     if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+    // 0, 3, 6, 9
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
@@ -439,11 +488,12 @@ labelBalance.addEventListener('click', function () {
 /////////////////////////////////////////////////
 // Numeric Separators
 
-const diameter = 287_467_000_000;
+// 287,460,000,000
+const diameter = 287_460_000_000;
 console.log(diameter);
 
-const priceCents = 347_99;
-console.log(priceCents);
+const price = 345_99;
+console.log(price);
 
 // Not work
 console.log(Number('230_000'));
