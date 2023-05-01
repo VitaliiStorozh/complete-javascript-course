@@ -48,4 +48,17 @@ console.log(vitalii.species, matilda.species);
 
 console.log(vitalii.hasOwnProperty('firstName'));
 console.log(vitalii.hasOwnProperty('species'));
-console.log(vitalii.hasProto);
+
+console.log(vitalii.__proto__);
+// Object.prototype (top of prototype chain)
+console.log(vitalii.__proto__.__proto__);
+console.log(vitalii.__proto__.__proto__.__proto__);
+
+const arr = [2, 3, 5, 7, 8, 4, 2, 1]; // new Array === []
+console.log(arr.__proto__);
+
+Array.prototype.unique = function () {
+  return [...new Set(this)].sort((a, b) => a - b);
+};
+
+console.log(arr.unique());
