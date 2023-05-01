@@ -27,3 +27,25 @@ console.log(vitalii instanceof Person);
 
 const jay = 'Jay';
 console.log(jay instanceof Person);
+
+// Prototypes
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function () {
+  console.log(2022 - this.birthYear);
+};
+
+vitalii.calcAge();
+
+console.log(vitalii.__proto__);
+console.log(vitalii.__proto__ === Person.prototype);
+
+console.log(Person.prototype.isPrototypeOf(vitalii));
+console.log(Person.prototype.isPrototypeOf(Person));
+
+Person.prototype.species = 'Homo Sapiens';
+console.log(vitalii.species, matilda.species);
+
+console.log(vitalii.hasOwnProperty('firstName'));
+console.log(vitalii.hasOwnProperty('species'));
+console.log(vitalii.hasProto);
