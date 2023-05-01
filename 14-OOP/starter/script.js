@@ -1,5 +1,9 @@
 'use strict';
 
+/*
+///////////////////////////////////////
+// Constructor Functions and the new Operator
+
 const Person = function (firstName, birthYear) {
   // Instance properties
   this.firstName = firstName;
@@ -28,6 +32,7 @@ console.log(vitalii instanceof Person);
 const jay = 'Jay';
 console.log(jay instanceof Person);
 
+///////////////////////////////////////
 // Prototypes
 console.log(Person.prototype);
 
@@ -62,3 +67,4 @@ Array.prototype.unique = function () {
 };
 
 console.log(arr.unique());
+*/
