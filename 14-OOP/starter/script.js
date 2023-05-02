@@ -68,3 +68,42 @@ Array.prototype.unique = function () {
 
 console.log(arr.unique());
 */
+
+/*
+///////////////////////////////////////
+// ES6 Classes
+
+// Class expression
+// const PersonCl = class {};
+
+// Class declaration
+
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2023 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+}
+
+const jesica = new PersonCl('Jesica', 1996);
+console.log(jesica);
+jesica.calcAge();
+
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
+
+jesica.greet();
+
+// 1. Classes are NOT hoisted
+// 2. Classes are first-class citizens
+// 3. Classes are executed in strict mode
+*/
