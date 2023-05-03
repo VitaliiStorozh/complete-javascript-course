@@ -82,6 +82,8 @@ class PersonCl {
     this.fullName = fullName;
     this.birthYear = birthYear;
   }
+
+  // Instance methods
   // Methods will be added to .prototype property
   calcAge() {
     console.log(2023 - this.birthYear);
@@ -95,6 +97,7 @@ class PersonCl {
     return 2023 - this.birthYear;
   }
 
+  // Set a property that already exists
   set fullName(name) {
     if (name.includes(' ')) this._fullName = name;
     else alert(`${name} is not a full name!`);
@@ -103,18 +106,24 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  // Static method
+  static hey() {
+    console.log('Hey there 👋');
+    console.log(this);
+  }
 }
 
 const jesica = new PersonCl('Jesica Devis', 1996);
 console.log(jesica);
 jesica.calcAge();
 console.log(jesica.age);
+jesica.greet();
+PersonCl.hey();
 
 // PersonCl.prototype.greet = function () {
 //   console.log(`Hey ${this.firstName}`);
 // };
-
-jesica.greet();
 
 // 1. Classes are NOT hoisted
 // 2. Classes are first-class citizens
